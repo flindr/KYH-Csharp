@@ -1,0 +1,15 @@
+﻿@using CoolPage.Models;
+@model User;
+
+<div>
+    @if (Model != null)
+    {
+        <h1>Tjaaaaa @Model.Name</h1>
+        @if (Model.Coolness == double.PositiveInfinity)
+        {
+            <h1>😎😎😎😎😎😎</h1>
+            <h1>😎😎😎😎😎😎</h1>
+            <h1>😎😎😎😎😎😎</h1>
+        }
+    }
+</div>
