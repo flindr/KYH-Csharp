@@ -15,5 +15,10 @@ namespace CoolPage.Controllers
             };
             return View(user);
         }
+
+        public IActionResult About()
+        {
+            return View();
+        }
     }
 }
