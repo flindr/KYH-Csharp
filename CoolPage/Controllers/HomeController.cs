@@ -1,12 +1,11 @@
 ﻿using CoolPage.Models;
 using Microsoft.AspNetCore.Mvc;
-using System.Threading.Tasks;
 
 namespace CoolPage.Controllers
 {
     public class HomeController : Controller
     {
-        public async Task<IActionResult> Index()
+        public IActionResult Index()
         {
             var user = new User
             {
@@ -14,23 +13,12 @@ namespace CoolPage.Controllers
                 Age = 25,
                 Coolness = double.PositiveInfinity
             };
-
-            await HeavyWorkAsync();
-
             return View(user);
         }
 
-        private static void HeavyWork()
+        public IActionResult About()
         {
-            for (int i = 0; i < 2000000000; i++)
-            {
-
-            }
-        }
-
-        private static async Task HeavyWorkAsync()
-        {
-            await Task.Run(() => HeavyWork());
+            return View();
         }
     }
 }
