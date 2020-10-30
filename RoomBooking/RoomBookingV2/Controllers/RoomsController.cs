@@ -1,6 +1,6 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using Microsoft.AspNetCore.Mvc;
-
 using RoomBooking.Models;
 
 namespace RoomBooking.Views
@@ -31,13 +31,13 @@ namespace RoomBooking.Views
         // från vyn till metoden i controllen
         public IActionResult Create(Room room)
         {
-            room.Id = DbContext.Rooms.Count + 1;
+            room.Id = Guid.NewGuid();
             DbContext.Rooms.Add(room);
             return RedirectToAction("Index");
         }
 
         // GET: Rooms/Edit/5
-        public IActionResult Edit(int? id)
+        public IActionResult Edit(Guid id)
         {
             if(id == null)
             {
@@ -71,7 +71,7 @@ namespace RoomBooking.Views
         }
 
         // GET: Rooms/Delete/5
-        public IActionResult Delete(int? id)
+        public IActionResult Delete(Guid id)
         {
             if(id == null)
             {
@@ -90,7 +90,7 @@ namespace RoomBooking.Views
 
         // POST: Rooms/Delete/5
         [HttpPost]
-        public IActionResult Delete(int id)
+        public IActionResult DeleteConfirmed(Guid id)
         {
             var room = DbContext.Rooms.FirstOrDefault(r => r.Id == id);
 
