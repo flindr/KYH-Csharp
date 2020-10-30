@@ -5,7 +5,9 @@ VisualStudioVersion = 16.0.30611.23
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RoomBooking", "RoomBooking\RoomBooking.csproj", "{95B22644-250C-4F11-B51C-75EC7D8A59AB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RoomBookingV2", "RoomBookingV2\RoomBookingV2.csproj", "{A9A9E847-E1AE-43E0-9B9B-B0D1B0751986}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RoomBookingV2", "RoomBookingV2\RoomBookingV2.csproj", "{A9A9E847-E1AE-43E0-9B9B-B0D1B0751986}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RoomBookingV1", "RoomBookingV1\RoomBookingV1.csproj", "{F2D59889-7EFA-4520-A702-5C5141C693CC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{A9A9E847-E1AE-43E0-9B9B-B0D1B0751986}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A9A9E847-E1AE-43E0-9B9B-B0D1B0751986}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A9A9E847-E1AE-43E0-9B9B-B0D1B0751986}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F2D59889-7EFA-4520-A702-5C5141C693CC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F2D59889-7EFA-4520-A702-5C5141C693CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F2D59889-7EFA-4520-A702-5C5141C693CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F2D59889-7EFA-4520-A702-5C5141C693CC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
