@@ -1,9 +1,10 @@
-﻿@model RoomBookingV1.Models.ViewModels.CreateBookingViewModel
+﻿@model RoomBookingV1.Models.ViewModels.EditBookingViewModel
 
-<h1>Create room</h1>
+<h1>Edit booking</h1>
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="Create" method="post">
+        <form asp-action="Edit" method="post">
+            <input hidden asp-for="Booking.Id" />
             <div class="form-group">
                 <label class="control-label">Booker</label>
                 <input class="form-control" asp-for="Booking.Booker" />
@@ -12,7 +13,6 @@
                 <label class="control-label">Room</label>
                 <select class="form-control" asp-for="Booking.RoomId"
                         asp-items="@(new SelectList(Model.Rooms, "Id", "Name"))">
-                    <option>Select room</option>
                 </select>
             </div>
             <div class="form-group">
@@ -24,7 +24,7 @@
                 <input class="form-control" asp-for="Booking.To" />
             </div>
             <div class="form-group">
-                <input class="btn btn-primary" type="submit" value="Create" />
+                <input class="btn btn-primary" type="submit" value="Save" />
             </div>
 
         </form>

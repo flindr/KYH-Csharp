@@ -1,11 +1,11 @@
-﻿using System;
+﻿using RoomBookingV1.Models;
 using System.Collections.Generic;
 
-namespace RoomBookingV2.Models.ViewModels
+namespace RoomBookingV1.Models.ViewModels
 {
     public class EditBookingViewModel
     {
-        public List<Room> Rooms { get; set; }
         public Booking Booking { get; set; }
+        public List<Room> Rooms { get; set; }
     }
 }

@@ -1,10 +1,7 @@
-﻿using RoomBooking.Models;
-using System;
+﻿using RoomBookingV1.Models;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
-namespace RoomBookingV1.Models.ViewModel
+namespace RoomBookingV1.Models.ViewModels
 {
     public class CreateBookingViewModel
     {

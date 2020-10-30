@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace RoomBooking.Models.ViewModels
+namespace RoomBookingV2.Models.ViewModels
 {
     public class CreateBookingViewModel
     {

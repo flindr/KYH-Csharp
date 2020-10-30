@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace RoomBooking.Models
+namespace RoomBookingV1.Models
 {
     public static class DbContext
     {
@@ -25,6 +25,29 @@ namespace RoomBooking.Models
             Rooms.Add(room1);
             Rooms.Add(room2);
             Rooms.Add(room3);
+
+            Booking booking1 = new Booking 
+            { 
+                Id = Guid.NewGuid(), 
+                Booker = "Erik", 
+                RoomId = room1.Id, 
+                RoomName = room1.Name, 
+                From = DateTime.Now, 
+                To = DateTime.Now.AddHours(2) 
+            };
+
+            Booking booking2 = new Booking
+            {
+                Id = Guid.NewGuid(),
+                Booker = "David",
+                RoomId = room2.Id,
+                RoomName = room2.Name,
+                From = DateTime.Now.AddDays(1),
+                To = DateTime.Now.AddDays(1).AddHours(2)
+            };
+
+            Bookings.Add(booking1);
+            Bookings.Add(booking2);
         }
     }
 }

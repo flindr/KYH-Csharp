@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace RoomBooking.Models
+namespace RoomBookingV2.Models
 {
     public static class DbContext
     {

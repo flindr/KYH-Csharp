@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Linq;
 using Microsoft.AspNetCore.Mvc;
-using RoomBooking.Models;
-using RoomBooking.Models.ViewModels;
+using RoomBookingV2.Models;
+using RoomBookingV2.Models.ViewModels;
 
-namespace RoomBooking.Views
+namespace RoomBookingV2.Controllers
 {
     public class BookingsController : Controller
     {
