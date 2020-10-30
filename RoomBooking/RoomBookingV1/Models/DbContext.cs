@@ -6,10 +6,12 @@ namespace RoomBooking.Models
     public static class DbContext
     {
         public static List<Room> Rooms { get; set; }
+        public static List<Booking> Bookings { get; set; }
 
         static DbContext()
         {
             Rooms = new List<Room>();
+            Bookings = new List<Booking>();
 
             Seed();
         }
