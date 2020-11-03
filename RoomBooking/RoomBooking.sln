@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RoomBookingV2", "RoomBookin
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RoomBookingV1", "RoomBookingV1\RoomBookingV1.csproj", "{F2D59889-7EFA-4520-A702-5C5141C693CC}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RoomBookingV3", "RoomBookingV3\RoomBookingV3.csproj", "{F6595A0D-697B-44DB-884C-7666DC29D45A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{F2D59889-7EFA-4520-A702-5C5141C693CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F2D59889-7EFA-4520-A702-5C5141C693CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F2D59889-7EFA-4520-A702-5C5141C693CC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F6595A0D-697B-44DB-884C-7666DC29D45A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F6595A0D-697B-44DB-884C-7666DC29D45A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F6595A0D-697B-44DB-884C-7666DC29D45A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F6595A0D-697B-44DB-884C-7666DC29D45A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
