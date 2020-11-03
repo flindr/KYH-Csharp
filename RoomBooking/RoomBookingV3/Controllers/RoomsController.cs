@@ -31,9 +31,14 @@ namespace RoomBookingV3.Controllers
         // från vyn till metoden i controllen
         public IActionResult Create(Room room)
         {
-            room.Id = Guid.NewGuid();
-            DbContext.Rooms.Add(room);
-            return RedirectToAction("Index");
+            if(ModelState.IsValid)
+            {
+                room.Id = Guid.NewGuid();
+                DbContext.Rooms.Add(room);
+                return RedirectToAction("Index");
+            }
+
+            return View(room);
         }
 
         // GET: Rooms/Edit/5
@@ -58,16 +63,21 @@ namespace RoomBookingV3.Controllers
         [HttpPost]
         public IActionResult Edit(Room room)
         {
-            var roomIndex = DbContext.Rooms.FindIndex(m => m.Id == room.Id);
-
-            if(roomIndex == -1)
+            if(ModelState.IsValid)
             {
-                return NotFound();
+                var roomIndex = DbContext.Rooms.FindIndex(m => m.Id == room.Id);
+
+                if(roomIndex == -1)
+                {
+                    return NotFound();
+                }
+
+                DbContext.Rooms[roomIndex] = room;
+
+                return RedirectToAction(nameof(Index));
             }
 
-            DbContext.Rooms[roomIndex] = room;
-
-            return RedirectToAction(nameof(Index));
+            return View(room);
         }
 
         // GET: Rooms/Delete/5
