@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Microsoft.AspNetCore.Mvc;
+using RoomBookingV3.Helpers;
 using RoomBookingV3.Models;
 using RoomBookingV3.Models.ViewModels;
 
@@ -24,28 +26,60 @@ namespace RoomBookingV3.Controllers
         // GET: Bookings/Create
         public IActionResult Create()
         {
+            // vi skapar ett specifikt objekt för Create-vyn därför
+            // att vi behöver en lista på alla rum som är bokbara/finns i databasen
             var createBookingViewModel = new CreateBookingViewModel() { Rooms = DbContext.Rooms };
             return View(createBookingViewModel);
         }
 
         // POST: Bookings/Create
         [HttpPost]
-        // från vyn till metoden i controllen
         public IActionResult Create(Booking booking)
         {
-            var room = DbContext.Rooms.FirstOrDefault(r => r.Id == booking.RoomId);
-            
-            if(room == null)
+            if(!ValidateBooking(booking))
             {
-                return RedirectToAction(nameof(Create));
+                var createBookingViewModel = new CreateBookingViewModel() { Rooms = DbContext.Rooms, Booking = booking };
+                return View(createBookingViewModel);
             }
 
+            // vi hämtar ut det valda rummets namn
+            var roomName = DbContext.Rooms.FirstOrDefault(r => r.Id == booking.RoomId).Name;
+
+            booking.RoomName = roomName;
             booking.Id = Guid.NewGuid();
-            booking.RoomName = room.Name;
 
             DbContext.Bookings.Add(booking);
 
             return RedirectToAction("Index");
+        }
+
+        private bool ValidateBooking(Booking booking)
+        {
+            bool isValid = true;
+
+            // Check if from date is after To date
+            if (booking.From > booking.To)
+            {
+                ModelState.AddModelError("Booking.From", "Start date cannot be after end date");
+                var createBookingViewModel = new CreateBookingViewModel() { Rooms = DbContext.Rooms, Booking = booking };
+                isValid = false;
+            }
+
+            //1. Hämta ut alla bokning som har samma roomId som den nya bokningen
+            List<Booking> bookingsFromDb = DbContext.Bookings.Where(b => b.RoomId == booking.RoomId).ToList();
+
+            //2. Kolla om något av dessa bokningar har överlappande datum
+            foreach (var oldBooking in bookingsFromDb)
+            {
+                if(DateHelpers.HasSharedDateIntervals(booking.From, booking.To, oldBooking.From, oldBooking.To))
+                {
+                    ModelState.AddModelError("Booking.From", "Date already occupied.");
+                    var createBookingViewModel = new CreateBookingViewModel() { Rooms = DbContext.Rooms, Booking = booking };
+                    isValid = false;
+                }
+            }
+
+            return isValid;
         }
 
         // GET: Bookings/Edit/5

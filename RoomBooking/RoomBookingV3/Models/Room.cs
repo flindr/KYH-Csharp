@@ -16,7 +16,7 @@ namespace RoomBookingV3.Models
         public int Floor { get; set; }
 
         [Required(ErrorMessage = "Size is required.")]
-        [Range(1, 99, ErrorMessage = "Floor must be between 0 and 100")]
+        [Range(1, 24, ErrorMessage = "Size must be between 0 and 100")]
         public int Size { get; set; }
     }
 }

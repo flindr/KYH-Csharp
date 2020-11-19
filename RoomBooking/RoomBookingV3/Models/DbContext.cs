@@ -32,8 +32,8 @@ namespace RoomBookingV3.Models
                 Booker = "Mohammad", 
                 RoomId = room1.Id, 
                 RoomName = room1.Name, 
-                From = new DateTime(2020, 10, 25, 14, 0, 0), 
-                To = new DateTime(2020, 10, 25, 16, 0, 0) 
+                From = new DateTime(2020, 11, 25, 14, 0, 0), 
+                To = new DateTime(2020, 11, 25, 16, 0, 0) 
             };
 
             var booking2 = new Booking
@@ -42,8 +42,8 @@ namespace RoomBookingV3.Models
                 Booker = "Philip",
                 RoomId = room2.Id,
                 RoomName = room2.Name,
-                From = new DateTime(2020, 10, 26, 14, 0, 0),
-                To = new DateTime(2020, 10, 26, 16, 0, 0)
+                From = new DateTime(2020, 11, 26, 14, 0, 0),
+                To = new DateTime(2020, 11, 26, 16, 0, 0)
             };
 
             Bookings.Add(booking1);
